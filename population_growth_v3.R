@@ -8,14 +8,14 @@ library(RColorBrewer)
 
 #### Read in population data ####
 # Population in 2010 and 2019 for all US counties
-county_pops <- read_csv('input_data/co-est2019-alldata.csv') %>%
+county_pops <- read_csv('co-est2019-alldata.csv') %>%
   select(STATE, COUNTY, STNAME, CTYNAME, POPESTIMATE2010:POPESTIMATE2019,
          BIRTHS2010:BIRTHS2019,
          DEATHS2010:DEATHS2019) %>%
   filter(STNAME != CTYNAME)
 
 # Top 25 most populated cities
-city_pops <- read_csv('input_data/uscities.csv') %>%
+city_pops <- read_csv('uscities.csv') %>%
   arrange(desc(population)) %>% head(50)
 
 #### Get Shapefiles for states, counties, cities ####
